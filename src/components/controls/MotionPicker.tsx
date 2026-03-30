@@ -73,7 +73,7 @@ export function MotionPicker() {
     <div className="space-y-2">
       <p className="text-xs font-medium text-zinc-500 uppercase tracking-wider">Animation Speed</p>
       <div className="grid grid-cols-4 gap-1.5">
-        {MODES.map(({ mode, label, description, duration }) => (
+        {MODES.map(({ mode, label, duration }) => (
           <button
             key={mode}
             onClick={() => setMotionMode(mode)}
