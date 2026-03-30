@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0f0f10;
+  color: #f4f4f5;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Skeleton shimmer animation */
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-from, #e4e4e7) 0%,
+    var(--skeleton-to, #d4d4d8) 50%,
+    var(--skeleton-from, #e4e4e7) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+/* Scrollbar styling for preview */
+.preview-root ::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+.preview-root ::-webkit-scrollbar-track {
+  background: var(--color-surface-sunken);
+}
+.preview-root ::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius-pill);
+}
