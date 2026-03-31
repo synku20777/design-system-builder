@@ -6,7 +6,9 @@
       "Bash(1:*)",
       "Bash(npx create-vite@latest . --template react-ts)",
       "Bash(npx --yes create-vite@latest . --template react-ts --force)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(gh auth:*)",
+      "Bash(gh api:*)"
     ]
   }
 }

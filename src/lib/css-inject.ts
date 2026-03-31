@@ -35,7 +35,7 @@ export function buildCSSString(input: ThemeInput): string {
   const secondaryScale = generateScale(input.secondaryColor, false)
   const baseScale = generateScale(input.baseColor, true)
   const brandHue = hexToOklch(input.brandColor).h
-  const { light, dark } = getSemanticTokens(brandScale, secondaryScale, baseScale, brandHue)
+  const { light, dark } = getSemanticTokens(brandHue)
   const multiplier = SHADOW_MULTIPLIERS[input.shadowMode]
   const motionTokens = generateMotionTokens(input.motionMode)
   const lightTokens = { ...light, ...generateShadowTokens(brandHue, 'light', multiplier), ...motionTokens }
@@ -57,8 +57,8 @@ export function buildCSSString(input: ThemeInput): string {
   const fontVars = `  --font-heading: ${fontFamilyValue(input.headingFont, headingDef.category)};
   --font-sans: ${fontFamilyValue(input.bodyFont, bodyDef.category)};`
 
-  const skeletonVars = `  --skeleton-from: ${baseScale['100']};
-  --skeleton-to: ${baseScale['200']};`
+  const skeletonVars = `  --skeleton-from: var(--color-base-100);
+  --skeleton-to: var(--color-base-200);`
 
   const componentVars = `  --radius-icon-button: ${input.roundIconButtons ? radius.pill : radius.md};`
 
@@ -77,8 +77,8 @@ ${componentVars}
 
 .preview-root.dark {
 ${tokensToVars(darkTokens)}
-  --skeleton-from: ${baseScale['800']};
-  --skeleton-to: ${baseScale['700']};
+  --skeleton-from: var(--color-base-800);
+  --skeleton-to: var(--color-base-700);
 }
 `.trim()
 }

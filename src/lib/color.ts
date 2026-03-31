@@ -49,64 +49,59 @@ export interface SemanticTokens {
   dark: Record<string, string>
 }
 
-export function getSemanticTokens(
-  brandScale: ColorScale,
-  secondaryScale: ColorScale,
-  baseScale: ColorScale,
-  brandHue: number,
-): SemanticTokens {
+export function getSemanticTokens(brandHue: number): SemanticTokens {
   const light: Record<string, string> = {
-    '--color-primary': brandScale['600']!,
-    '--color-primary-hover': brandScale['700']!,
+    '--color-primary': 'var(--color-brand-600)',
+    '--color-primary-hover': 'var(--color-brand-700)',
     '--color-primary-fg': 'oklch(1 0 0)',
 
-    '--color-secondary': secondaryScale['100']!,
-    '--color-secondary-fg': secondaryScale['800']!,
-    '--color-secondary-hover': secondaryScale['200']!,
+    '--color-secondary': 'var(--color-secondary-100)',
+    '--color-secondary-fg': 'var(--color-secondary-800)',
+    '--color-secondary-hover': 'var(--color-secondary-200)',
 
-    '--color-background': baseScale['50']!,
-    '--color-surface-sunken': baseScale['100']!,
+    '--color-background': 'var(--color-base-50)',
+    '--color-surface-sunken': 'var(--color-base-100)',
     '--color-surface': 'oklch(1 0 0)',
     '--color-surface-raised': 'oklch(1 0 0)',
 
-    '--color-border': baseScale['200']!,
-    '--color-fg': baseScale['900']!,
-    '--color-muted-fg': baseScale['500']!,
+    '--color-border': 'var(--color-base-200)',
+    '--color-fg': 'var(--color-base-900)',
+    '--color-muted-fg': 'var(--color-base-500)',
 
-    '--color-rating': brandScale['400']!,
+    '--color-rating': 'var(--color-brand-400)',
 
-    '--placeholder-bg': `linear-gradient(135deg, ${baseScale['100']} 0%, ${baseScale['200']} 100%)`,
+    '--placeholder-bg': 'linear-gradient(135deg, var(--color-base-100) 0%, var(--color-base-200) 100%)',
     '--overlay-bg': `oklch(0.1 0.02 ${brandHue.toFixed(1)} / 0.45)`,
 
-    '--ring-color': brandScale['500']!,
-    '--ring-offset': baseScale['50']!,
+    '--ring-color': 'var(--color-brand-500)',
+    '--ring-offset': 'var(--color-base-50)',
   }
 
   const dark: Record<string, string> = {
-    '--color-primary': brandScale['400']!,
-    '--color-primary-hover': brandScale['300']!,
+    '--color-primary': 'var(--color-brand-400)',
+    '--color-primary-hover': 'var(--color-brand-300)',
     '--color-primary-fg': 'oklch(0.1 0 0)',
 
-    '--color-secondary': secondaryScale['800']!,
-    '--color-secondary-fg': secondaryScale['100']!,
-    '--color-secondary-hover': secondaryScale['700']!,
+    '--color-secondary': 'var(--color-secondary-800)',
+    '--color-secondary-fg': 'var(--color-secondary-100)',
+    '--color-secondary-hover': 'var(--color-secondary-700)',
 
-    '--color-background': baseScale['950']!,
-    '--color-surface-sunken': baseScale['950']!,
-    '--color-surface': baseScale['900']!,
-    '--color-surface-raised': baseScale['800']!,
+    '--color-background': 'var(--color-base-950)',
+    '--color-surface-sunken': 'var(--color-base-950)',
+    '--color-surface': 'var(--color-base-900)',
+    '--color-surface-raised': 'var(--color-base-800)',
 
-    '--color-border': baseScale['800']!,
-    '--color-fg': baseScale['50']!,
-    '--color-muted-fg': baseScale['400']!,
+    '--color-border': 'var(--color-base-800)',
+    '--color-fg': 'var(--color-base-50)',
+    '--color-muted-fg': 'var(--color-base-400)',
 
-    '--color-rating': brandScale['400']!,
+    '--color-rating': 'var(--color-brand-400)',
 
-    '--placeholder-bg': `linear-gradient(135deg, ${baseScale['800']} 0%, ${baseScale['900']} 100%)`,
+    '--placeholder-bg': 'linear-gradient(135deg, var(--color-base-800) 0%, var(--color-base-900) 100%)',
     '--overlay-bg': `oklch(0.05 0.02 ${brandHue.toFixed(1)} / 0.60)`,
 
-    '--ring-color': brandScale['400']!,
-    '--ring-offset': baseScale['950']!,
+    '--ring-color': 'var(--color-brand-400)',
+    '--ring-offset': 'var(--color-base-950)',
   }
 
   return { light, dark }
