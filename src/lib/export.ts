@@ -33,7 +33,7 @@ export function buildExportCSS(input: {
   const secondaryScale = generateScale(input.secondaryColor, false)
   const baseScale = generateScale(input.baseColor, true)
   const brandHue = hexToOklch(input.brandColor).h
-  const { light, dark } = getSemanticTokens(brandScale, secondaryScale, baseScale, brandHue)
+  const { light, dark } = getSemanticTokens(brandHue)
   const multiplier = SHADOW_MULTIPLIERS[input.shadowMode]
   const motionTokens = generateMotionTokens(input.motionMode)
   const lightTokens = { ...light, ...generateShadowTokens(brandHue, 'light', multiplier), ...motionTokens }
